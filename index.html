@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://npmcdn.com/basscss@7.1.1/css/basscss.min.css">
+    <title>key code reference</title>
+    <meta name="description" content="">
+    <meta name="author" content="Brian Zelip">
+    <meta name="keywords" content="">
+    <style>
+      body,
+      .vh100 { min-height: 100vh; }
+      .h0 { font-size: 6rem; }
+    </style>
+  </head>
+
+  <body>
+
+    <header class="container">
+      <h1 class="h3 m0 center">Press any key to display its <code>KeyboardEvent.key</code> and <code>KeyboardEvent.code</code> values.</h1>
+    </header>
+
+    <main>
+      <div class="container flex flex-column center">
+        <section>
+          <div id="output" class="h0">
+
+          </div>
+        </section>
+        <section>
+          <div id="input" class="inline-block border p4">
+
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      let count = 0;
+      window.addEventListener('keydown', function(e){
+        document.getElementById('output').innerHTML = '';
+        document.getElementById('input').innerHTML = '';
+        count ++;
+        document.getElementById('output').append(e.code);
+        document.getElementById('input').append(e.key);
+        console.log('count is: ' + count);
+        console.log(e);
+      })
+    </script>
+
+  </body>
+
+</html>
