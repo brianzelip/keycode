@@ -20,20 +20,16 @@
   <body>
 
     <header class="container">
-      <h1 class="h3 m0 center">Press any key to display its <code>KeyboardEvent.key</code> and <code>KeyboardEvent.code</code> values.</h1>
+      <h1 class="h3 m0 center">Press any key to display its (<a href="https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode">deprecated</a>) <code>KeyboardEvent.keyCode</code> and <code>KeyboardEvent.charCode</code> values.</h1>
     </header>
 
     <main>
       <div class="container flex flex-column center">
         <section>
-          <div id="output" class="h0">
-
-          </div>
+          <div id="output" class="h0"></div>
         </section>
         <section>
-          <div id="input" class="inline-block border p4">
-
-          </div>
+          <div id="input" class="inline-block border p4"></div>
         </section>
       </div>
     </main>
@@ -44,8 +40,12 @@
         document.getElementById('output').innerHTML = '';
         document.getElementById('input').innerHTML = '';
         count ++;
-        document.getElementById('output').append(e.code);
-        document.getElementById('input').append(e.key);
+        document.getElementById('output').append('keyCode = ' + e.keyCode);
+        if (!e.key){
+          document.getElementById('input').append('no `key` consciousness in ur browser');
+        } else {
+          document.getElementById('input').append('key = ' + e.key);
+        }
         console.log('count is: ' + count);
         console.log(e);
       })
